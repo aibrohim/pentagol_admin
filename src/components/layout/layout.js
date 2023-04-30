@@ -65,7 +65,7 @@ export const Layout = ({ children }) => {
           height: "100%",
         }}
       >
-        {children}
+        <div style={{ padding: 30 }}>{children}</div>
       </AntdLayout>
     </AntdLayout>
   );

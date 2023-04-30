@@ -1,3 +1,5 @@
+import { Clubs } from "modules/clubs";
+import { Leagues } from "modules/leagues";
 import { useRoutes } from "react-router";
 
 export const useRoutesConfig = () =>
@@ -8,7 +10,7 @@ export const useRoutesConfig = () =>
     },
     {
       path: "/leagues",
-      element: "Leagues",
+      element: <Leagues />,
     },
     {
       path: "/matches",
@@ -16,7 +18,7 @@ export const useRoutesConfig = () =>
     },
     {
       path: "/clubs",
-      element: "Clubs",
+      element: <Clubs />,
     },
     {
       path: "/articles",
