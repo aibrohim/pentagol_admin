@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { LeagueModal } from "../league-modal";
 import { editLeague } from "modules/leagues/services/editLeague";
+import { EditButtons } from "../edit-buttons";
 
 export const EditLeague = ({ editingLeague, onClose }) => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export const EditLeague = ({ editingLeague, onClose }) => {
       onClose={onClose}
       initialValues={editingLeague}
       onSubmit={handleSubmit}
+      buttons={<EditButtons />}
     />
   );
 };

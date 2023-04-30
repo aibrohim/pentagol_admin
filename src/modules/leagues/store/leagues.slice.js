@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getLeagues } from "../services/getLeagues";
 import { addLeague } from "../services/addLeague";
 import { editLeague } from "../services/editLeague";
+import { deleteLeague } from "../services/deleteLeague";
 
 const initialState = {
   list: null,
@@ -9,6 +10,7 @@ const initialState = {
   adding: false,
   editing: false,
   editingLeague: null,
+  deleting: false,
 };
 
 export const leaguesSlice = createSlice({
@@ -56,6 +58,19 @@ export const leaguesSlice = createSlice({
       })
       .addCase(editLeague.rejected, (state) => {
         state.editing = false;
+      });
+
+    builder
+      .addCase(deleteLeague.pending, (state) => {
+        state.deleting = true;
+      })
+      .addCase(deleteLeague.fulfilled, (state, action) => {
+        state.deleting = false;
+        state.list = state.list.filter((item) => item.id !== action.payload);
+        state.editingLeague = null;
+      })
+      .addCase(deleteLeague.rejected, (state) => {
+        state.deleting = false;
       });
   },
 });

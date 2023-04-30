@@ -1,2 +1,2 @@
 export * from "./getLeagues";
-export * from "./addLeagues";
+export * from "./addLeague";
